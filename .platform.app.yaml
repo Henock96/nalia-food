@@ -1,0 +1,20 @@
+name: 'nalia-food'
+
+type: 'nodejs:16'
+
+disk: 2048
+
+relationships:
+    postgresql_database: 'db:postgresql'
+
+web:
+   locations:
+       '/':
+          # The public directory relative to the app root.
+          root: 'public'
+          # Forward resources to the app.
+          passthru: true
+          # What files to use when serving a directory.
+          index: ["index.html"]
+          # Allow files even without specified rules.
+          allow: true
